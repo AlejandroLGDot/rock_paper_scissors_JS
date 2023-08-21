@@ -54,12 +54,59 @@ function playRound(playerChoice, computerChoice)
 // Do this 5 times
 function game()
 {
-    for (let rounds = 0; rounds < 5; rounds++)
+    let win = false;
+
+    // Regular expression (RegEx) use to check if the conditional word is in the sentence.
+    const round_pattern = /You/;
+    
+    // Stats from the match saved in variables
+    let round_result;
+    let player_wins = 0;
+    let computer_wins = 0;
+    let rounds = 1;
+
+    // Game Loop
+    while (win != true)
     {
-        const playerSelection = prompt(`IT'S ROUND ${rounds + 1} OF ROCK PAPER SCISSORS, WHAT DO YOU CHOOSE? `);
+        const playerSelection = prompt(`IT'S ROUND ${rounds} OF ROCK PAPER SCISSORS, WHAT DO YOU CHOOSE? `);
         const computerSelection = getComputerChoice();
 
-        console.log(playRound(playerSelection, computerSelection));   
+        round_result = playRound(playerSelection, computerSelection);
+        console.log(`============== ROUND ${rounds} RESULTS ============== \n` + round_result);
+        
+        // Check if it's a Win/Lose Scenario otherwise not add points
+        if (round_pattern.test(round_result) == true)
+        {
+            // Check the character at the index position to get a Win or Lose scenario
+            if (round_result.charAt(4) == 'W')
+            {
+                player_wins += 1;
+            }
+            else
+            {
+                computer_wins += 1;
+            }
+            // To check the player stats versus the computer
+            console.log("Player count: " + player_wins + "\nComputer count: " + computer_wins);
+        }
+
+        // Victory condition = First to 5 points Wins
+        if (computer_wins == 5 || player_wins == 5)
+        {
+            win = true;
+        }
+
+        // To add to the round
+        rounds++;
     }
-    return "GAME OVER";
+
+    // Return the winner of the match
+    if (player_wins == 5)
+    {
+        return "Player Wins! GAME OVER";
+    }
+    else
+    {
+        return "Computer Wins! GAME OVER";
+    }
 }
