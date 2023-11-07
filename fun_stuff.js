@@ -80,8 +80,9 @@ function playRound(playerChoice, computerChoice)
 // UI = User Interface (Interfaz de Usuario)
 
 const scoreboard = Array.from(document.querySelectorAll('.points'));
+const scoreboard_text = document.querySelector('.round_winner_text');
 const button = document.getElementById('restartButton');
-button.style.display = 'none';
+// button.style.display = 'none';
 
 function isGameOver() {
     gameOver = true;
@@ -94,6 +95,7 @@ function isGameOver() {
 }
 
 function scoreboardUpdate() {
+    scoreboard_text.textContent = `The round winner is ${roundWinner.toLowerCase()}`;
     if (roundWinner == "Player") {
         scoreboard[0].textContent = `Player Points: ${playerScore}`;
     }
@@ -103,6 +105,10 @@ function scoreboardUpdate() {
     else if (roundWinner == "RESTART"){
         scoreboard[0].textContent = `Player Points: ${playerScore}`;
         scoreboard[1].textContent = `Computer Points: ${computerScore}`;
+        scoreboard_text.textContent = `Time for a Rematch! Ready?`;
+    }
+    else if (roundWinner == "none"){
+        scoreboard_text.textContent = `It's a TIE`;
     }
 }
 

@@ -1,0 +1,20 @@
+* {
+    border: red 1px solid;
+    margin: 0;
+    padding: 0;
+}
+
+.upper_part {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.scoreboard {
+    display: flex;
+    justify-content: center;
+}
+
+.points {
+    flex: 1;
+}
