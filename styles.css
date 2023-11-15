@@ -1,20 +1,115 @@
 * {
-    border: red 1px solid;
-    margin: 0;
-    padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
 }
 
 .upper_part {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.text_score {
+  display: flex;
+  justify-content: center;
 }
 
 .scoreboard {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .points {
-    flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.main_game {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.game_decision {
+  display: flex;
+  justify-content: center;
+}
+
+.game_decision > img{
+  border: #FF4742 5px solid;
+  border-radius: 5%;
+  max-width: 500px;
+  min-width: 300px;
+  width: 30%;
+  height: auto;
+}
+
+.game_decision > img:hover {
+  animation: blink 1s linear infinite;
+  border: black 5px solid;
+}
+
+/* CSS Button */
+/* Source from: https://getcssscan.com/css-buttons-examples */
+button {
+  background: #FF4742;
+  border: 1px solid #FF4742;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 16px;
+  min-height: 40px;
+  outline: 0;
+  padding: 12px 14px;
+  text-align: center;
+  text-rendering: geometricprecision;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+
+  max-width: 300px;
+  align-self: center;
+
+  margin-top: 1%;
+}
+
+button:hover,
+button:active {
+  background-color: initial;
+  background-position: 0 0;
+  color: #FF4742;
+}
+
+button:active {
+  opacity: .5;
+}
+
+/* Source from: https://drishtantregmi.medium.com/how-to-create-a-blinking-effect-using-css-961726592621*/
+@keyframes blink {
+  25% {
+    opacity: 0.95;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  75% {
+    opacity: 0.95;
+  }
 }

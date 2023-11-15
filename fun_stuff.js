@@ -4,6 +4,7 @@ let playerScore = 0;
 let computerScore = 0;
 let roundWinner = "";
 let gameOver = false;
+let round_information = "";
 
 const decisions = document.querySelectorAll('.player_choice');
 
@@ -49,7 +50,7 @@ function playRound(playerChoice, computerChoice)
         {
             ++computerScore;
             roundWinner = "Computer";
-            console.log("You Lose!, " + computerChoice + " Beats " + playerChoice);
+            round_information = "You Lose! " + computerChoice + " beats " + playerChoice;
         }
         else if (computerChoice == "Rock" && playerChoice == "Paper" || 
                  computerChoice == "Paper" && playerChoice == "Scissors" || 
@@ -57,7 +58,7 @@ function playRound(playerChoice, computerChoice)
         {
             ++playerScore;
             roundWinner = "Player";
-            console.log("You Win!, " + playerChoice + " Beats " + computerChoice);
+            round_information = "You Win! " + playerChoice + " beats " + computerChoice;
         }
         else if (playerChoice == "Gun")
         {
@@ -82,7 +83,7 @@ function playRound(playerChoice, computerChoice)
 const scoreboard = Array.from(document.querySelectorAll('.points'));
 const scoreboard_text = document.querySelector('.round_winner_text');
 const button = document.getElementById('restartButton');
-// button.style.display = 'none';
+button.style.display = 'none';
 
 function isGameOver() {
     gameOver = true;
@@ -95,7 +96,8 @@ function isGameOver() {
 }
 
 function scoreboardUpdate() {
-    scoreboard_text.textContent = `The round winner is ${roundWinner.toLowerCase()}`;
+    // OLD scoreboard_text.textContent = `The round winner is ${roundWinner.toLowerCase()}`;
+    scoreboard_text.textContent = round_information;
     if (roundWinner == "Player") {
         scoreboard[0].textContent = `Player Points: ${playerScore}`;
     }
